@@ -1,0 +1,26 @@
+name: uz_kit
+description: Complete Flutter & Dart utility kit for Uzbekistan. Detects Uzcard/Humo cards, mobile operators, formats money to Uzbek words, phone numbers, and validates PINFL/Passports.
+version: 0.1.0
+homepage: https://github.com/Ibrohim-Qobilov/uz_kit
+repository: https://github.com/Ibrohim-Qobilov/uz_kit
+issue_tracker: https://github.com/Ibrohim-Qobilov/uz_kit/issues
+
+topics:
+  - uzbekistan
+  - fintech
+  - uzcard
+  - formatters
+  - validation
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0

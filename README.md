@@ -2,6 +2,11 @@
   <img src="https://raw.githubusercontent.com/Ibrohim-Qobilov/uz_kit/main/assets/screenshots/preview.png" width="800" alt="UzKit Flutter Package Banner" />
 </p>
 
+<p align="center">
+  <a href="README_UZ.md">🇺🇿 <b>O'zbekcha Hujjatlar</b></a> &nbsp;•&nbsp;
+  <a href="README.md">🇬🇧 <b>English Documentation</b></a>
+</p>
+
 # 🇺🇿 UzKit — The Ultimate Flutter & Dart Toolkit for Uzbekistan
 
 <p align="center">

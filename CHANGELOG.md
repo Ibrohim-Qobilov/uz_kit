@@ -2,6 +2,12 @@
 
 All notable changes to the `uz_kit` package will be documented in this file.
 
+## [0.1.1] - 2026-09-02
+
+### Added
+* Add Uzbek documentation (`README_UZ.md`) and language switcher buttons.
+* Improve documentation and examples.
+
 ## [0.1.0] - 2026-09-02
 
 ### Added

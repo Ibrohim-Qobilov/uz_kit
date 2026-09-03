@@ -1,6 +1,6 @@
 name: uz_kit
 description: Complete Flutter & Dart utility kit for Uzbekistan. Detects Uzcard/Humo cards, mobile operators, formats money to Uzbek words, phone numbers, and validates PINFL/Passports.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/Ibrohim-Qobilov/uz_kit
 repository: https://github.com/Ibrohim-Qobilov/uz_kit
 issue_tracker: https://github.com/Ibrohim-Qobilov/uz_kit/issues

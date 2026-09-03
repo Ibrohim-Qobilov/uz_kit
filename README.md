@@ -3,9 +3,45 @@
 </p>
 
 <p align="center">
-  <a href="README_UZ.md">🇺🇿 <b>O'zbekcha Hujjatlar</b></a> &nbsp;•&nbsp;
-  <a href="README.md">🇬🇧 <b>English Documentation</b></a>
+  <a href="https://github.com/Ibrohim-Qobilov/uz_kit/blob/main/README_UZ.md">
+    <img src="https://img.shields.io/badge/🇺🇿_O'zbekcha-Hujjatlar_va_Qo'llanma-0284C7?style=for-the-badge&logo=readme&logoColor=white" alt="O'zbekcha Hujjatlar" />
+  </a>
+  <a href="https://github.com/Ibrohim-Qobilov/uz_kit/blob/main/README.md">
+    <img src="https://img.shields.io/badge/🇬🇧_English-Documentation-02569B?style=for-the-badge" alt="English Documentation" />
+  </a>
 </p>
+
+<details>
+<summary>🇺🇿 <b>O'zbek tilidagi to'liq qo'llanmani shu yerda o'qish (Bosing / Click to Expand)</b></summary>
+<br />
+
+### 🇺🇿 UzKit — O'zbekcha Tezkor Qo'llanma
+
+O'zbekistondagi **Fintech, Bank ilovalari, E-commerce, hisob-fakturalar va mobil ilovalar** uchun maxsus yaratilgan Flutter & Dart kutubxonasi.
+
+#### 🚀 Tezkor Misollar:
+```dart
+import 'package:uz_kit/uz_kit.dart';
+
+// 1. Karta turini aniqlash (Uzcard, Humo, Visa...)
+UzCardType type = UzCardUtils.getCardType('8600123456789012');
+
+// 2. Telefon raqamni formatlash va operatorni bilish
+String phone = UzPhoneUtils.formatPhoneNumber('998901234567'); // "+998 (90) 123-45-67"
+UzOperator op = UzPhoneUtils.getOperator('998901234567'); // Beeline
+
+// 3. So'm summasini so'z bilan yozish (Lotin / Kirill)
+String words = UzMoneyWords.toWords(1450000); 
+// "bir million to'rt yuz ellik ming so'm"
+
+// 4. JShShIR (PINFL) va Pasport tekshirish
+bool isValidPinfl = UzIdentityUtils.isValidPinfl('32109876543210');
+```
+
+Batafsil to'liq hujjat: 👉 [README_UZ.md](https://github.com/Ibrohim-Qobilov/uz_kit/blob/main/README_UZ.md)
+
+---
+</details>
 
 # 🇺🇿 UzKit — The Ultimate Flutter & Dart Toolkit for Uzbekistan
 

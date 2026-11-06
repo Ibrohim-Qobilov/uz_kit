@@ -12,38 +12,39 @@
 </p>
 
 <details>
-<summary>🇺🇿 <b>O'zbek tilidagi to'liq qo'llanmani shu yerda o'qish (Bosing / Click to Expand)</b></summary>
+<summary>🇺🇿 <b>O'zbekcha tezkor qo'llanma (bosing / click to expand)</b></summary>
 <br />
 
-### 🇺🇿 UzKit — O'zbekcha Tezkor Qo'llanma
+### 🇺🇿 UzKit — O'zbekcha tezkor qo'llanma
 
-O'zbekistondagi **Fintech, Bank ilovalari, E-commerce, hisob-fakturalar va mobil ilovalar** uchun maxsus yaratilgan Flutter & Dart kutubxonasi.
+O'zbekistondagi **fintech, bank ilovalari, e-commerce, hisob-fakturalar va mobil ilovalar** uchun Flutter & Dart kutubxonasi.
 
-#### 🚀 Tezkor Misollar:
 ```dart
 import 'package:uz_kit/uz_kit.dart';
 
 // 1. Karta turini aniqlash (Uzcard, Humo, Visa...)
-UzCardType type = UzCardUtils.getCardType('8600123456789012');
+final card = UzCardUtils.detectType('8600123456789012');
+print(card.displayName); // "Uzcard"
 
-// 2. Telefon raqamni formatlash va operatorni bilish
-String phone = UzPhoneUtils.formatPhoneNumber('998901234567'); // "+998 (90) 123-45-67"
-UzOperator op = UzPhoneUtils.getOperator('998901234567'); // Beeline
+// 2. Telefon raqamni formatlash va operatorni aniqlash
+print(UzPhoneUtils.format('998901234567')); // "+998 (90) 123-45-67"
+print(UzPhoneUtils.detectOperator('998901234567').displayName); // "Beeline"
 
-// 3. So'm summasini so'z bilan yozish (Lotin / Kirill)
-String words = UzMoneyWords.toWords(1450000); 
+// 3. So'm summasini so'z bilan yozish (lotin / kirill)
+print(UzMoneyToWords.convert(1450000));
 // "bir million to'rt yuz ellik ming so'm"
 
-// 4. JShShIR (PINFL) va Pasport tekshirish
-bool isValidPinfl = UzIdentityUtils.isValidPinfl('32109876543210');
+// 4. JShShIR (PINFL) va pasportni tekshirish
+print(UzPinflValidator.isValid('30101901234569')); // true
+print(UzPassportUtils.isValid('AA 1234567'));      // true
 ```
 
-Batafsil to'liq hujjat: 👉 [README_UZ.md](https://github.com/Ibrohim-Qobilov/uz_kit/blob/main/README_UZ.md)
+To'liq o'zbekcha hujjat: 👉 [README_UZ.md](https://github.com/Ibrohim-Qobilov/uz_kit/blob/main/README_UZ.md)
 
 ---
 </details>
 
-# 🇺🇿 UzKit — The Ultimate Flutter & Dart Toolkit for Uzbekistan
+# 🇺🇿 UzKit — The Flutter & Dart Toolkit for Uzbekistan
 
 <p align="center">
   <a href="https://pub.dev/packages/uz_kit"><img src="https://img.shields.io/pub/v/uz_kit.svg?style=for-the-badge&logo=dart&color=0284C7" alt="Pub Version" /></a>
@@ -53,42 +54,41 @@ Batafsil to'liq hujjat: 👉 [README_UZ.md](https://github.com/Ibrohim-Qobilov/u
   <a href="https://flutter.dev"><img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" /></a>
 </p>
 
----
+A lightweight, null-safe Flutter and Dart toolkit for **fintech, banking, e-commerce, invoicing and mobile apps in Uzbekistan**. No third-party dependencies, only Flutter itself.
 
-A modern, high-performance Flutter and Dart utility toolkit specifically designed for **Fintech, Banking, E-commerce, Invoicing, and Mobile Applications in Uzbekistan**.
+> ⭐ **If UzKit saves you time, please [star the repo on GitHub](https://github.com/Ibrohim-Qobilov/uz_kit).** It helps other Uzbek developers find it.
 
 ---
 
 ## ⚡ Why UzKit?
 
-Building applications for the Uzbekistan market requires dealing with local payment systems, phone formatting, invoice receipt generation, and legal document validations. **UzKit** provides a clean, battle-tested, 100% null-safe suite of utilities so you never have to reinvent the wheel.
+Apps for the Uzbekistan market keep re-implementing the same things: local card systems, `+998` phone formatting, amounts written out in words on receipts, and PINFL / passport checks. UzKit puts them in one small, tested package.
 
-* 💳 **Bank Card Recognition:** Instantly detects **Uzcard**, **Humo**, **Visa**, **Mastercard**, **UnionPay**, and **Mir** cards with auto-formatting, masking, and Luhn checksum validation.
-* 📞 **Phone & Mobile Operator:** Formats `+998 (xx) xxx-xx-xx` and detects **Beeline**, **Ucell**, **Mobiuz**, **Uztelecom**, **Humans**, and **Perfectum** by network code.
-* 💰 **Money to Words in Uzbek:** Converts numerical amounts up to trillions into written Uzbek words (*"bir million to'rt yuz ellik ming so'm"*) in both **Latin** and **Cyrillic** alphabets with tiyin support.
-* 🆔 **Official Identity Verification:**
-  * **JShShIR (PINFL):** 14-digit official State Tax Committee checksum verification.
-  * **Passport & ID-Cards:** Formatting and pattern validation (`AA 1234567`).
-  * **STIR (INN):** 9-digit Taxpayer Identification Number validation.
+* 💳 **Bank cards:** detects **Uzcard**, **Humo**, **Visa**, **Mastercard**, **UnionPay** and **Mir**, formats and masks card numbers, and validates them with the Luhn checksum.
+* 📞 **Phones and operators:** formats `+998 (xx) xxx-xx-xx` and detects **Beeline**, **Ucell**, **Mobiuz**, **Uztelecom**, **Humans** and **Perfectum** by network code.
+* 💰 **Amounts in words:** writes amounts up to trillions in Uzbek (*"bir million to'rt yuz ellik ming so'm"*), in **Latin** or **Cyrillic**, with tiyin.
+* 🆔 **Identity documents:**
+  * **JShShIR (PINFL):** 14-digit checksum validation.
+  * **Passport / ID card:** formatting and pattern validation (`AA 1234567`).
+  * **STIR (INN):** 9-digit taxpayer number validation.
+* ⌨️ **Seven ready-made `TextInputFormatter`s** that format input while the user types.
 
 ---
 
 ## 📦 Installation
 
-Add `uz_kit` to your `pubspec.yaml` file:
-
-```yaml
-dependencies:
-  uz_kit: ^0.1.0
-```
-
-Or install it via terminal:
-
 ```bash
 flutter pub add uz_kit
 ```
 
-Then import the library in your Dart code:
+Or add it to your `pubspec.yaml` manually:
+
+```yaml
+dependencies:
+  uz_kit: ^0.1.2
+```
+
+Then import it:
 
 ```dart
 import 'package:uz_kit/uz_kit.dart';
@@ -96,43 +96,43 @@ import 'package:uz_kit/uz_kit.dart';
 
 ---
 
-## 📖 Comprehensive Usage Guide
+## 📖 Usage
 
-### 1. 💳 Bank Cards (Uzcard, Humo, Visa, Mastercard)
+### 1. 💳 Bank cards (Uzcard, Humo, Visa, Mastercard)
 
 ```dart
-// 1. Automatic Card Type Detection
+// Card type detection
 final cardType = UzCardUtils.detectType('8600123456789012');
 print(cardType.displayName); // "Uzcard"
 print(cardType.isLocal);     // true
-print(cardType.brandColor);  // 0xFF005696
+final color = Color(cardType.brandColor); // brand color, 0xFF005696
 
-// 2. Format with spaces
-final formatted = UzCardUtils.format('9860123456789012');
-print(formatted); // "9860 1234 5678 9012"
+// Formatting and masking
+print(UzCardUtils.format('9860123456789012')); // "9860 1234 5678 9012"
+print(UzCardUtils.mask('8600123456789012'));   // "8600 **** **** 9012"
 
-// 3. Privacy Masking
-final masked = UzCardUtils.mask('8600123456789012');
-print(masked); // "8600 **** **** 9012"
+// Validation
+print(UzCardUtils.isValidLength('8600 1234 5678 9012')); // true
+print(UzCardUtils.isValidLuhn('8600123456789012'));      // true
 
-// 4. Expiry Date & Luhn Checksum
-final isLuhnValid = UzCardUtils.isValidLuhn('8600123456789012');
-final isExpiryValid = UzCardUtils.isExpiryValid('12/28');
+// Expiry date
+print(UzCardUtils.formatExpiry('1228'));  // "12/28"
+print(UzCardUtils.isExpiryValid('12/28')); // true until the card expires
 
-// 5. Use in TextField Formatter
+// In a TextField
 TextField(
   keyboardType: TextInputType.number,
   inputFormatters: [UzCardNumberFormatter()],
-  decoration: InputDecoration(
-    labelText: 'Card Number',
+  decoration: const InputDecoration(
+    labelText: 'Card number',
     hintText: '8600 0000 0000 0000',
   ),
 );
 ```
 
-#### Supported Card BIN Ranges:
+#### Supported card BIN ranges
 
-| Card Type | BIN Prefixes | Domestic / International |
+| Card type | BIN prefixes | Domestic / International |
 | :--- | :--- | :---: |
 | 💳 **Uzcard** | `8600`, `5614` | Domestic (Uzbekistan) |
 | 💳 **Humo** | `9860` | Domestic (Uzbekistan) |
@@ -143,35 +143,37 @@ TextField(
 
 ---
 
-### 2. 📞 Phone Numbers & Mobile Operators
+### 2. 📞 Phone numbers and mobile operators
 
 ```dart
-// 1. Detect Mobile Operator
+// Operator detection
 final operator = UzPhoneUtils.detectOperator('+998 90 123 45 67');
 print(operator.displayName); // "Beeline"
 print(operator.companyName); // "Unitel LLC"
 
-// 2. Format & Normalization
-final formatted = UzPhoneUtils.format('901234567');
-print(formatted); // "+998 (90) 123-45-67"
+// Formatting and normalization
+print(UzPhoneUtils.format('901234567')); // "+998 (90) 123-45-67"
+print(UzPhoneUtils.format('998901234567', withCountryCode: false)); // "(90) 123-45-67"
+print(UzPhoneUtils.normalize('+998 (90) 123-45-67')); // "998901234567"
 
-final normalized = UzPhoneUtils.normalize('+998 (90) 123-45-67');
-print(normalized); // "998901234567"
+// Validation (12 digits with 998 and a known operator code)
+print(UzPhoneUtils.isValid('+998 93 123 45 67')); // true (Ucell)
+print(UzPhoneUtils.isValid('+998 92 123 45 67')); // false (unknown code)
 
-// 3. TextField Formatter
+// In a TextField
 TextField(
   keyboardType: TextInputType.phone,
   inputFormatters: [UzPhoneInputFormatter()],
-  decoration: InputDecoration(
-    labelText: 'Phone Number',
+  decoration: const InputDecoration(
+    labelText: 'Phone number',
     hintText: '+998 (90) 123-45-67',
   ),
 );
 ```
 
-#### Supported Mobile Operators:
+#### Supported mobile operators
 
-| Operator | Network Codes | Company |
+| Operator | Network codes | Company |
 | :--- | :--- | :--- |
 | 🟡 **Beeline** | `90`, `91` | Unitel LLC |
 | 🟣 **Ucell** | `93`, `94`, `50` | Coscom LLC |
@@ -182,56 +184,69 @@ TextField(
 
 ---
 
-### 3. 💰 Amount to Words in Uzbek (Kvitansiya & Cheklar)
-
-Convert any numerical amount into grammatically correct written words in Uzbek:
+### 3. 💰 Amounts in words (receipts and invoices)
 
 ```dart
-// Latin Alphabet
-final textLatin = UzMoneyToWords.convert(1450000);
-print(textLatin); 
-// Output: "bir million to'rt yuz ellik ming so'm"
+// Latin script
+print(UzMoneyToWords.convert(1450000));
+// "bir million to'rt yuz ellik ming so'm"
 
-// With Tiyin
-final withTiyin = UzMoneyToWords.convert(2500000.50);
-print(withTiyin); 
-// Output: "ikki million besh yuz ming so'm 50 tiyin"
+// With tiyin
+print(UzMoneyToWords.convert(2500000.50));
+// "ikki million besh yuz ming so'm 50 tiyin"
 
-// Cyrillic Alphabet
-final textCyrillic = UzMoneyToWords.convert(1450000, script: UzScript.cyrillic);
-print(textCyrillic); 
-// Output: "бир миллион тўрт юз эллик минг сўм"
+// Cyrillic script
+print(UzMoneyToWords.convert(1450000, script: UzScript.cyrillic));
+// "бир миллион тўрт юз эллик минг сўм"
 
-// Currency Amount Formatter with Spaces
-final formattedMoney = UzMoneyFormatter.format(1250000);
-print(formattedMoney); // "1 250 000 so'm"
+// Without the currency name
+print(UzMoneyToWords.convert(125, withCurrency: false));
+// "bir yuz yigirma besh"
+
+// Amount formatting with thousand separators
+print(UzMoneyFormatter.format(1250000)); // "1 250 000 so'm"
+print(UzMoneyFormatter.format(99.9, symbol: r'$', symbolAtEnd: false, decimalDigits: 2));
+// "$ 99.90"
 ```
 
 ---
 
-### 4. 🆔 JShShIR (PINFL) & Passport Verification
+### 4. 🆔 JShShIR (PINFL), passport and STIR (INN)
 
 ```dart
-// 1. JShShIR (PINFL - 14 Digits) Checksum Validation
-final isPinflValid = UzPinflValidator.isValid('30101901234567');
-print(isPinflValid); // true/false based on official STC algorithm
+// JShShIR (PINFL), 14 digits with checksum
+print(UzPinflValidator.isValid('30101901234569')); // true
+print(UzPinflValidator.isValid('30101901234567')); // false (wrong check digit)
 
-// 2. Passport / ID-Card Formatting & Validation
-final formattedPassport = UzPassportUtils.format('aa1234567');
-print(formattedPassport); // "AA 1234567"
+// Passport / ID card
+print(UzPassportUtils.format('aa1234567'));   // "AA 1234567"
+print(UzPassportUtils.isValid('AA 1234567')); // true
 
-final isPassportValid = UzPassportUtils.isValid('AA 1234567');
-print(isPassportValid); // true
-
-// 3. STIR / INN (9 Digits) Validation
-final isTinValid = UzTinValidator.isValid('123456789');
+// STIR / INN, 9 digits
+print(UzTinValidator.isValid('123456789')); // true
 ```
 
 ---
 
-## 📱 Interactive Demo Application
+## ⌨️ Input formatters
 
-Run the bundled Flutter demo app in the `example/` directory:
+Drop any of these into `TextField.inputFormatters`:
+
+| Formatter | User types | Field shows |
+| :--- | :--- | :--- |
+| `UzCardNumberFormatter()` | `8600123456789012` | `8600 1234 5678 9012` |
+| `UzCardExpiryFormatter()` | `1228` | `12/28` |
+| `UzPhoneInputFormatter()` | `901234567` | `+998 (90) 123-45-67` |
+| `UzMoneyInputFormatter()` | `1500000` | `1 500 000` |
+| `UzPassportInputFormatter()` | `aa1234567` | `AA 1234567` |
+| `UzPinflInputFormatter()` | digits | first 14 digits only |
+| `UzTinInputFormatter()` | digits | first 9 digits only |
+
+---
+
+## 📱 Demo app
+
+The `example/` directory has a Flutter demo with every feature:
 
 ```bash
 cd example
@@ -240,31 +255,33 @@ flutter run
 
 ---
 
-## 🧪 Testing & Quality Assurance
+## 🧪 Tests
 
-All features are covered by comprehensive unit tests:
+Every example in this README is covered by a unit test (`test/readme_examples_test.dart`), so the docs stay in sync with the code:
 
 ```bash
-flutter test --coverage
-```
-
-Output:
-```text
-00:00 +10: All tests passed!
+flutter test
 ```
 
 ---
 
-## 👨‍💻 Author & Contributions
+## 🤝 Contributing
 
-Created with ❤️ by **[Ibrohim Qobilov](https://github.com/Ibrohim-Qobilov)**.
+Bug reports, feature ideas and pull requests are welcome:
 
-Feedback, feature suggestions, and pull requests are welcome!
-* [GitHub Repository](https://github.com/Ibrohim-Qobilov/uz_kit)
-* [Report an Issue](https://github.com/Ibrohim-Qobilov/uz_kit/issues)
+* [Open an issue](https://github.com/Ibrohim-Qobilov/uz_kit/issues)
+* [GitHub repository](https://github.com/Ibrohim-Qobilov/uz_kit)
+
+If a new operator code or card BIN appears in Uzbekistan, an issue or PR with the source is the fastest way to get it added.
+
+⭐ **Found UzKit useful? [Give it a star on GitHub](https://github.com/Ibrohim-Qobilov/uz_kit)** and a 👍 on [pub.dev](https://pub.dev/packages/uz_kit).
 
 ---
+
+## 👨‍💻 Author
+
+Created by **[Ibrohim Qobilov](https://github.com/Ibrohim-Qobilov)**.
 
 ## 📄 License
 
-This package is open-sourced under the [MIT License](LICENSE).
+Released under the [MIT License](LICENSE).

@@ -2,6 +2,22 @@
 
 All notable changes to the `uz_kit` package will be documented in this file.
 
+## [0.1.2] - 2026-11-06
+
+### Fixed
+* README and README_UZ examples now use the real API. Earlier examples called
+  methods that do not exist (`getCardType`, `formatPhoneNumber`, `getOperator`,
+  `UzMoneyWords.toWords`, `UzIdentityUtils.*`, `UzPhoneNumberFormatter`), so
+  copy-pasted snippets did not compile.
+* PINFL example now uses a number that passes the checksum.
+* Install snippet points to the current version.
+
+### Added
+* `test/readme_examples_test.dart`: every output shown in the READMEs is
+  asserted, including PINFL, Luhn and all seven input formatters, which had
+  no tests before.
+* Input formatter reference table and pub.dev screenshot.
+
 ## [0.1.1] - 2026-09-02
 
 ### Added

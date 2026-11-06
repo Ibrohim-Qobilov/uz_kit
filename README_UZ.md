@@ -3,11 +3,11 @@
 </p>
 
 <p align="center">
-  <a href="README_UZ.md">🇺🇿 <b>O'zbekcha Hujjatlar</b></a> &nbsp;•&nbsp;
-  <a href="README.md">🇬🇧 <b>English Documentation</b></a>
+  <a href="README_UZ.md">🇺🇿 <b>O'zbekcha hujjat</b></a> &nbsp;•&nbsp;
+  <a href="README.md">🇬🇧 <b>English documentation</b></a>
 </p>
 
-# 🇺🇿 UzKit — O'zbekiston uchun Eng Mukammal Flutter & Dart Kutubxonasi
+# 🇺🇿 UzKit — O'zbekiston uchun Flutter & Dart kutubxonasi
 
 <p align="center">
   <a href="https://pub.dev/packages/uz_kit"><img src="https://img.shields.io/pub/v/uz_kit.svg?style=for-the-badge&logo=dart&color=0284C7" alt="Pub Version" /></a>
@@ -17,42 +17,41 @@
   <a href="https://flutter.dev"><img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" /></a>
 </p>
 
+O'zbekistondagi **fintech, bank ilovalari, e-commerce (onlayn do'konlar), hisob-fakturalar va mobil ilovalar** uchun yengil, null-safe Flutter / Dart kutubxonasi. Flutter'dan boshqa hech qanday tashqi bog'liqlik yo'q.
+
+> ⭐ **UzKit vaqtingizni tejagan bo'lsa, [GitHub'da yulduzcha bosing](https://github.com/Ibrohim-Qobilov/uz_kit).** Shunda boshqa o'zbek dasturchilar ham uni osonroq topadi.
+
 ---
 
-O'zbekistondagi **Fintech, Bank ilovalari, E-commerce (onlayn do'konlar), hisob-fakturalar va mobil ilovalar** uchun maxsus yaratilgan eng to'liq va tezkor Flutter / Dart kutubxonasi.
+## ⚡ Nega UzKit?
 
----
+O'zbekiston bozori uchun ilova yozganda har safar bir xil narsalarni qaytadan yozishga to'g'ri keladi: mahalliy kartalar, `+998` telefon formati, chekdagi summani so'z bilan yozish, JShShIR va pasport tekshiruvi. UzKit bularning barchasini bitta kichik, testlangan paketda beradi.
 
-## ⚡ Nega Aynan UzKit?
-
-O'zbekiston bozori uchun ilova yaratishda mahalliy to'lov tizimlari, telefon raqam formatlari, hisob-faktura cheklaridagi so'zlarni yozish va rasmiy hujjatlarni tekshirish talab etiladi. **UzKit** barcha bu ehtiyojlarni bitta toza, 100% testlangan va null-safe to'plamda taqdim etadi.
-
-* 💳 **Bank Kartalarini Aniqlash:** **Uzcard**, **Humo**, **Visa**, **Mastercard**, **UnionPay** va **Mir** kartalarini bir zumda aniqlaydi, chiroyli formatlaydi (`8600 1234 ...`), yashiradi (`8600 **** **** 3456`) va Luhn algoritmi bo'yicha haqiqiyligini tekshiradi.
-* 📞 **Telefon & Uyali Aloqa Operatorlari:** `+998 (90) 123-45-67` formatlaydi va prefiks bo'yicha **Beeline**, **Ucell**, **Mobiuz**, **Uztelecom (Uzmobile)**, **Humans** va **Perfectum** operatorlarini aniqlab beradi.
-* 💰 **Raqamli Pulni So'zga Aylantirish:** Trillionlargacha bo'lgan summalarni o'zbek tilida so'z bilan yozib beradi (*"bir million to'rt yuz ellik ming so'm"*). **Lotin** va **Kirill** alifbolari hamda tiyinlar to'liq qo'llab-quvvatlanadi.
-* 🆔 **Rasmiy Hujjatlar Validatsiyasi:**
-  * **JShShIR (PINFL):** Davlat Soliq Qo'mitasining 14 xonali rasmiy nazorat summasi algoritmi bilan tekshirish.
-  * **Pasport & ID-karta:** Formatlash va seriya tekshiruvi (`AA 1234567`).
-  * **STIR (INN):** 9 xonali Soliq to'lovchining identifikatsiya raqami tekshiruvi.
+* 💳 **Bank kartalari:** **Uzcard**, **Humo**, **Visa**, **Mastercard**, **UnionPay** va **Mir** kartalarini aniqlaydi, formatlaydi (`8600 1234 ...`), yashiradi (`8600 **** **** 9012`) va Luhn algoritmi bilan tekshiradi.
+* 📞 **Telefon va operatorlar:** `+998 (90) 123-45-67` ko'rinishida formatlaydi va kod bo'yicha **Beeline**, **Ucell**, **Mobiuz**, **Uztelecom (Uzmobile)**, **Humans** va **Perfectum**ni aniqlaydi.
+* 💰 **Summani so'z bilan yozish:** trillionlargacha bo'lgan summani o'zbekcha yozadi (*"bir million to'rt yuz ellik ming so'm"*), **lotin** va **kirill** alifbosida, tiyin bilan.
+* 🆔 **Rasmiy hujjatlar:**
+  * **JShShIR (PINFL):** 14 xonali raqamni nazorat summasi bilan tekshirish.
+  * **Pasport / ID-karta:** formatlash va seriya tekshiruvi (`AA 1234567`).
+  * **STIR (INN):** 9 xonali soliq to'lovchi raqamini tekshirish.
+* ⌨️ **7 ta tayyor `TextInputFormatter`:** foydalanuvchi yozayotgan paytda maydonni avtomatik formatlaydi.
 
 ---
 
 ## 📦 O'rnatish
 
-Loyihangizdagi `pubspec.yaml` fayliga qo'shing:
-
-```yaml
-dependencies:
-  uz_kit: ^0.1.0
-```
-
-Yoki terminal orqali o'rnating:
-
 ```bash
 flutter pub add uz_kit
 ```
 
-Dart kodingizda import qiling:
+Yoki `pubspec.yaml` fayliga qo'lda qo'shing:
+
+```yaml
+dependencies:
+  uz_kit: ^0.1.2
+```
+
+Keyin import qiling:
 
 ```dart
 import 'package:uz_kit/uz_kit.dart';
@@ -60,118 +59,172 @@ import 'package:uz_kit/uz_kit.dart';
 
 ---
 
-## 🚀 Ishlatish Bo'yicha Qo'llanma
+## 🚀 Ishlatish
 
-### 1. 💳 Bank Kartalari bilan Ishlash
+### 1. 💳 Bank kartalari
 
 ```dart
 // Karta turini aniqlash (Uzcard, Humo, Visa, Mastercard va h.k.)
-UzCardType type = UzCardUtils.getCardType('8600123456789012');
-print(type.name); // Uzcard
-print(type.isLocal); // true
+final type = UzCardUtils.detectType('8600123456789012');
+print(type.displayName); // "Uzcard"
+print(type.isLocal);     // true (mahalliy karta)
+final color = Color(type.brandColor); // brend rangi, 0xFF005696
 
-// Karta raqamini probellar bilan chiroyli formatlash
-String formatted = UzCardUtils.formatCardNumber('9860123456789012');
-print(formatted); // "9860 1234 5678 9012"
+// Formatlash va yashirish
+print(UzCardUtils.format('9860123456789012')); // "9860 1234 5678 9012"
+print(UzCardUtils.mask('8600123456789012'));   // "8600 **** **** 9012"
 
-// Xavfsiz ko'rinishda yashirish (Masking)
-String masked = UzCardUtils.maskCardNumber('8600123456789012');
-print(masked); // "8600 **** **** 9012"
+// Tekshirish
+print(UzCardUtils.isValidLength('8600 1234 5678 9012')); // true
+print(UzCardUtils.isValidLuhn('8600123456789012'));      // true (Luhn)
 
-// Luhn algoritmi bo'yicha karta raqami haqiqiyligini tekshirish
-bool isValid = UzCardUtils.isValidCardNumber('8600123456789012');
-print(isValid); // true
+// Amal qilish muddati
+print(UzCardUtils.formatExpiry('1228'));   // "12/28"
+print(UzCardUtils.isExpiryValid('12/28')); // muddat tugaguncha true
 ```
+
+| Karta | BIN prefikslari | Turi |
+| :--- | :--- | :---: |
+| 💳 **Uzcard** | `8600`, `5614` | Mahalliy |
+| 💳 **Humo** | `9860` | Mahalliy |
+| 💳 **Visa** | `4...` | Xalqaro |
+| 💳 **Mastercard** | `51-55`, `2221-2720` | Xalqaro |
+| 💳 **UnionPay** | `62...` | Xalqaro |
+| 💳 **Mir** | `2200-2204` | Xalqaro |
 
 ---
 
-### 2. 📞 Telefon Raqamlari & Aloqa Operatorlari
+### 2. 📞 Telefon raqamlari va operatorlar
 
 ```dart
-// Formatlash (+998 (90) 123-45-67)
-String phone = UzPhoneUtils.formatPhoneNumber('998901234567');
-print(phone); // "+998 (90) 123-45-67"
-
 // Operatorni aniqlash
-UzOperator op = UzPhoneUtils.getOperator('998901234567');
-print(op.name); // "Beeline"
-print(op.brandColor); // Beeline brend rangi (0xFFFFD600)
+final op = UzPhoneUtils.detectOperator('998901234567');
+print(op.displayName); // "Beeline"
+print(op.companyName); // "Unitel LLC"
+
+// Formatlash
+print(UzPhoneUtils.format('901234567')); // "+998 (90) 123-45-67"
+print(UzPhoneUtils.format('998901234567', withCountryCode: false)); // "(90) 123-45-67"
+
+// Bitta standart ko'rinishga keltirish (12 raqam)
+print(UzPhoneUtils.normalize('+998 (90) 123-45-67')); // "998901234567"
 
 // Raqam to'g'riligini tekshirish
-bool isValid = UzPhoneUtils.isValidUzPhone('+998 93 123 45 67');
-print(isValid); // true (Ucell)
+print(UzPhoneUtils.isValid('+998 93 123 45 67')); // true (Ucell)
+print(UzPhoneUtils.isValid('+998 92 123 45 67')); // false (bunday kod yo'q)
 ```
+
+| Operator | Kodlar | Kompaniya |
+| :--- | :--- | :--- |
+| 🟡 **Beeline** | `90`, `91` | Unitel LLC |
+| 🟣 **Ucell** | `93`, `94`, `50` | Coscom LLC |
+| 🔴 **Mobiuz** | `97`, `88` | UMS LLC |
+| 🔵 **Uztelecom** | `99`, `95`, `77` | Uzbektelecom JSC |
+| 🟡 **Humans** | `33` | Humans LLC |
+| 🔴 **Perfectum** | `98` | RWC LLC |
 
 ---
 
-### 3. 💰 So'm Summasini So'z Bilan Yozish (Money to Words)
+### 3. 💰 Summani so'z bilan yozish
 
-Hisob-faktura, shartnoma, chek va kvitansiyalar uchun ayni muddao!
+Hisob-faktura, shartnoma, chek va kvitansiyalar uchun:
 
 ```dart
 // Lotin alifbosida
-String wordsLat = UzMoneyWords.toWords(1450000);
-print(wordsLat); 
+print(UzMoneyToWords.convert(1450000));
 // "bir million to'rt yuz ellik ming so'm"
 
 // Kirill alifbosida
-String wordsCyr = UzMoneyWords.toWords(2500000, script: UzScript.cyrillic);
-print(wordsCyr); 
-// "икки миллион беш юз минг сўм"
+print(UzMoneyToWords.convert(1450000, script: UzScript.cyrillic));
+// "бир миллион тўрт юз эллик минг сўм"
 
-// Tiyinlar bilan birga
-String withTiyin = UzMoneyWords.toWords(15000.50, includeCurrency: true);
-print(withTiyin); 
-// "o'n besh ming so'm 50 tiyin"
+// Tiyin bilan
+print(UzMoneyToWords.convert(2500000.50));
+// "ikki million besh yuz ming so'm 50 tiyin"
 
-// Pul formatlash (1 450 000 so'm)
-String formattedMoney = UzMoneyWords.formatMoney(1450000);
-print(formattedMoney); // "1 450 000 so'm"
+// Valyuta nomisiz
+print(UzMoneyToWords.convert(125, withCurrency: false));
+// "bir yuz yigirma besh"
+
+// Summani xonalarga ajratib formatlash
+print(UzMoneyFormatter.format(1250000)); // "1 250 000 so'm"
 ```
 
 ---
 
-### 4. 🆔 JShShIR, Pasport va STIR (INN) Tekshiruvi
+### 4. 🆔 JShShIR, pasport va STIR (INN)
 
 ```dart
-// 14 xonali JShShIR (PINFL) rasmiy nazorat summasi bo'yicha tekshirish
-bool isPinflValid = UzIdentityUtils.isValidPinfl('32109876543210');
+// JShShIR (PINFL): 14 xona, nazorat summasi bilan
+print(UzPinflValidator.isValid('30101901234569')); // true
+print(UzPinflValidator.isValid('30101901234567')); // false (nazorat raqami noto'g'ri)
 
-// Pasport / ID-karta formati
-bool isPassportValid = UzIdentityUtils.isValidPassport('AA1234567');
-String formattedPassport = UzIdentityUtils.formatPassport('aa1234567'); // "AA 1234567"
+// Pasport / ID-karta
+print(UzPassportUtils.format('aa1234567'));   // "AA 1234567"
+print(UzPassportUtils.isValid('AA 1234567')); // true
 
-// 9 xonali STIR (INN) tekshiruvi
-bool isInnValid = UzIdentityUtils.isValidInn('123456789');
+// STIR (INN): 9 xona
+print(UzTinValidator.isValid('123456789')); // true
 ```
 
 ---
 
-## 🎨 UI uchun Qulay TextField Formatterlar
+## ⌨️ TextField uchun formatterlar
 
-Foydalanuvchi kiritayotganda avtomatik bo'shliqlar qo'yib boruvchi tayyor TextInputFormatter'lar:
+Foydalanuvchi yozayotganda maydonni avtomatik formatlaydi:
 
 ```dart
 TextField(
+  keyboardType: TextInputType.number,
   inputFormatters: [UzCardNumberFormatter()],
   decoration: const InputDecoration(
-    hintText: '8600 0000 0000 0000',
     labelText: 'Karta raqami',
+    hintText: '8600 0000 0000 0000',
   ),
 )
 
 TextField(
-  inputFormatters: [UzPhoneNumberFormatter()],
+  keyboardType: TextInputType.phone,
+  inputFormatters: [UzPhoneInputFormatter()],
   decoration: const InputDecoration(
-    hintText: '+998 (90) 123-45-67',
     labelText: 'Telefon raqam',
+    hintText: '+998 (90) 123-45-67',
   ),
 )
 ```
+
+| Formatter | Foydalanuvchi yozadi | Maydonda ko'rinadi |
+| :--- | :--- | :--- |
+| `UzCardNumberFormatter()` | `8600123456789012` | `8600 1234 5678 9012` |
+| `UzCardExpiryFormatter()` | `1228` | `12/28` |
+| `UzPhoneInputFormatter()` | `901234567` | `+998 (90) 123-45-67` |
+| `UzMoneyInputFormatter()` | `1500000` | `1 500 000` |
+| `UzPassportInputFormatter()` | `aa1234567` | `AA 1234567` |
+| `UzPinflInputFormatter()` | raqamlar | faqat 14 ta raqam |
+| `UzTinInputFormatter()` | raqamlar | faqat 9 ta raqam |
+
+---
+
+## 📱 Demo ilova
+
+`example/` papkasida barcha imkoniyatlarni ko'rsatadigan Flutter ilova bor:
+
+```bash
+cd example
+flutter run
+```
+
+---
+
+## 🤝 Hissa qo'shish
+
+Xato topsangiz yoki yangi g'oyangiz bo'lsa, [issue oching](https://github.com/Ibrohim-Qobilov/uz_kit/issues) yoki pull request yuboring. Yangi operator kodi yoki karta BIN'i paydo bo'lsa, manbasi bilan issue yozing, tezda qo'shiladi.
+
+⭐ **UzKit foydali bo'ldimi? [GitHub'da yulduzcha bosing](https://github.com/Ibrohim-Qobilov/uz_kit)** va [pub.dev'da](https://pub.dev/packages/uz_kit) 👍 bosing.
 
 ---
 
 ## 📄 Litsenziya
 
-Ushbu loyiha [MIT Litsenziyasi](LICENSE) asosida erkin tarqatiladi.
+[MIT litsenziyasi](LICENSE) asosida erkin tarqatiladi.
 Muallif: **Ibrohim Qobilov** ([@Ibrohim-Qobilov](https://github.com/Ibrohim-Qobilov))
